@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "Segoe UI", sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #e5e5e5;
+    padding: 22px 60px;
+    position: sticky;
+    top: 0;
+}
+
+.navbar h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.hero-card {
+    background: white;
+    border-radius: 28px;
+    padding: 60px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.hero-card h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+.hero-card p {
+    color: #6e6e73;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    text-decoration: none;
+    color: inherit;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #6e6e73;
+}
+
+.form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.form-card h2 {
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d2d2d7;
+    border-radius: 14px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #0071e3;
+}
+
+.button {
+    background: #0071e3;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #0071e3;
+}
+
+.table-card {
+    background: white;
+    padding: 30px;
+    border-radius: 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    background: #fafafa;
+    padding: 16px;
+}
+
+td {
+    padding: 16px;
+    border-top: 1px solid #eeeeee;
+}
+
+.action-btn {
+    background: #0071e3;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.delete-btn {
+    background: #ff3b30;
+}
