@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - MediFlow</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>MediFlow</h1>
+    </nav>
+
+    <main class="container">
+
+        <div class="table-card">
+
+            <h2 style="margin-bottom: 25px;">Patient Records</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody id="patientTable">
+
+                </tbody>
+
+            </table>
+
+            <a href="index.html" class="back-link">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        async function loadPatients() {
+
+            const response = await fetch("/api/patients");
+
+            const patients = await response.json();
+
+            const table = document.getElementById("patientTable");
+
+            table.innerHTML = "";
+
+            patients.forEach(patient => {
+
+                table.innerHTML += `
+                    <tr>
+                        <td>${patient.id}</td>
+                        <td>${patient.name}</td>
+                        <td>${patient.age}</td>
+                        <td>${patient.gender}</td>
+                        <td>${patient.phone}</td>
+
+                        <td>
+                            <a class="action-btn"
+                               href="edit-patient.html?id=${patient.id}">
+                                Edit
+                            </a>
+                        </td>
+
+                        <td>
+                            <button
+                                class="action-btn delete-btn"
+                                onclick="deletePatient(${patient.id})">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        async function deletePatient(id) {
+
+            const confirmDelete =
+                confirm("Delete this patient?");
+
+            if(!confirmDelete) return;
+
+            await fetch(`/api/patients?id=${id}`, {
+                method: "DELETE"
+            });
+
+            loadPatients();
+        }
+
+        loadPatients();
+
+    </script>
+
+</body>
+</html>
+          
